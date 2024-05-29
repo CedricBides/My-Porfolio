@@ -78,6 +78,8 @@ const fadeInAnimationVariants = {
   }),
 };
 
+const lineColor = '#3A56A7';
+
 
 const projects = [
   {
@@ -480,35 +482,34 @@ export default function Home() {
 
 {/* Experience */}
 
-
-<section id="experience" data-scroll-section className="my-32">
-<div
+<section id="experience" data-scroll-section className="my-32 ">
+  <div
     data-scroll
     data-scroll-speed=".4"
     data-scroll-position="top"
     className="flex flex-col justify-start space-y-10"
   >
-      <div className="text-center">
-        <h2 className="text-4xl font-semibold tracking-tight mb-6">Experience</h2>
-      </div>
-      <VerticalTimeline>
-        {experience.map((exp, index) => (
-          <VerticalTimelineElement
-            visible={true}
-            key={index}
-            date={exp.date}
-            iconStyle={{ background: '#3A56A7', color: '#fff',}}
-            icon={exp.icon}
-            className={styles.timelineElement} 
-          >
-            <h3 className="vertical-timeline-element-title">{exp.title}</h3>
-            <h4 className="vertical-timeline-element-subtitle">{exp.location}</h4>
-            <p>{exp.description}</p>
-          </VerticalTimelineElement>
-        ))}
-      </VerticalTimeline>
-      </div>
-    </section>
+    <div className="text-center">
+      <h2 className="text-4xl font-semibold tracking-tight mb-6 clash-grotesk">Experience</h2>
+    </div>
+    <VerticalTimeline lineColor={lineColor}> {/* Pass the line color variable */}
+      {experience.map((exp, index) => (
+        <VerticalTimelineElement
+          visible={true}
+          key={index}
+          date={exp.date}
+          iconStyle={{ background: '#3A56A7', color: '#fff' }}
+          icon={exp.icon}
+          className={styles.timelineElement} 
+        >
+          <h3 className="vertical-timeline-element-title">{exp.title}</h3>
+          <h4 className="vertical-timeline-element-subtitle">{exp.location}</h4>
+          <p>{exp.description}</p>
+        </VerticalTimelineElement>
+      ))}
+    </VerticalTimeline>
+  </div>
+</section>
     
 
 {/* Contact */}
