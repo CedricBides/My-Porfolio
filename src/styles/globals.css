@@ -1,0 +1,195 @@
+@import "clash-grotesk.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background-light: #ffffff; /* White */
+    --foreground-light: #000000; /* Black */
+    
+    --background-dark: #1a1a1a; /* Black */
+    --foreground-dark: #ffffff; /* White */
+    
+    --card-light: #f5f5f5; /* Light Gray */
+    --card-dark: #2a2a2a; /* Dark Gray */
+      
+    --primary: 220 100% 50%; /* Blue */
+    --primary-foreground: 0 0% 100%; /* White */
+    
+    --muted: 220 50% 70%; /* Muted Blue */
+    --muted-foreground: 0 0% 100%; /* White */
+    
+    --accent: 220 100% 60%; /* Bright Blue */
+    --accent-foreground: 0 0% 100%; /* White */
+      
+    --destructive: 0 80% 70%; /* Red */
+    --destructive-foreground: 0 0% 100%; /* White */
+      
+    --border: 220 15% 75%; /* Border Blue */
+    --input: 220 15% 75%; /* Input Background Blue */
+    --ring: 220 100% 50%; /* Blue */
+      
+    --radius: 0.5rem;
+
+    --clash-grotesk-light: 220 100% 30%; /* Light Blue for clash grotesk */
+    --clash-grotesk-dark: 220 100% 70%; /* Dark Blue for clash grotesk */
+  }
+
+  body {
+    background-color: var(--background-light);
+    color: var(--foreground-light);
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  body.dark-mode {
+    background-color: var(--background-dark);
+    color: var(--foreground-dark);
+  }
+
+  .card {
+    background-color: var(--card-light);
+    color: var(--foreground-light);
+  }
+
+  body.dark-mode .card {  
+    background-color: var(--card-dark);
+    color: var(--foreground-dark);
+  }
+
+  .clash-grotesk {
+    font-family: "ClashGrotesk-Variable", sans-serif;
+    color: hsl(var(--clash-grotesk-light)); /* Default to light mode color */
+  }
+
+  body.dark-mode .clash-grotesk {
+    color: hsl(var(--clash-grotesk-dark)); /* Dark mode color */
+  }
+
+  html[data-scroll-orientation="horizontal"] {
+    body {
+      @apply w-fit;
+    }
+    [data-scroll-container] {
+      @apply flex;
+    }
+  }
+
+  .menu-background {
+    background-color: rgb(94, 114, 173); /* Gray background with slight transparency */
+  }
+  
+  
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply antialiased;
+  }
+
+  body {
+    @apply bg-background text-foreground cursor-wait;
+  }
+
+  section {
+    scroll-margin-top: 60px;
+  }
+
+  ::-webkit-scrollbar {
+    @apply h-2.5 w-2 transition;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-background;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted;
+  }
+  ::-webkit-scrollbar-thumb:active {
+    @apply bg-primary;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-br from-primary to-secondary bg-clip-text text-transparent;
+  }
+
+  .nav-active {
+    @apply text-sm lowercase tracking-tight text-primary-foreground;
+  }
+
+  .nav-link {
+    @apply text-sm lowercase tracking-tight text-muted-foreground;
+  }
+
+
+
+  @keyframes blink {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  .animate-blink {
+    animation: blink 1s infinite;
+  }
+}
+
+
+.nav-active {
+  color: rgb(58, 86, 167) !important;
+  @apply text-sm lowercase tracking-tight text-slate-200;
+}
+
+.dark-mode-toggle {
+  position: fixed;
+  bottom: 30px;
+  right: 20px;
+  background-color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  z-index: 1000;
+}
+
+.dark-mode-toggle:hover {
+  background-color: #f0f0f0;
+}
+
+body.dark-mode .dark-mode-toggle {
+  background-color: #333;
+  color: #fff;
+}
+
+body.dark-mode .dark-mode-toggle:hover {
+  background-color: #444;
+}
+
+.nav-link, .nav-active {
+  color: var(--foreground);
+}
+
+.vertical-timeline-element-content {
+  border: none !important;
+  box-shadow: none !important;
+  background-color: var(--card-light) !important;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode .vertical-timeline-element-content {
+  background-color: var(--card-dark) !important;
+  color: var(--foreground-dark) !important;
+}
+
+.hover-bg-purple {
+  transition: background-color 0.3s ease;
+}
+.hover-bg-purple:hover {
+  background-color: rgba(58, 85, 167, 0.411); 
+}
